@@ -2,13 +2,15 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Phone, Menu, X, ChevronDown } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Phone, ChevronDown, X, Menu } from 'lucide-react';
 import { NAV_LINKS, SITE_CONFIG } from '@/lib/constants';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
+  const [expandedMobileLink, setExpandedMobileLink] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -19,33 +21,39 @@ export default function Header() {
   useEffect(() => {
     if (mobileOpen) {
       document.body.style.overflow = 'hidden';
+      setExpandedMobileLink(null); // Reset when menu opens
     } else {
       document.body.style.overflow = '';
     }
   }, [mobileOpen]);
 
+  const toggleMobileSubmenu = (label: string) => {
+    setExpandedMobileLink(expandedMobileLink === label ? null : label);
+  };
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'bg-white/95 backdrop-blur border-b border-[#e5efee] shadow-sm' : 'bg-white/90 backdrop-blur border-b border-transparent'
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
+        scrolled || mobileOpen 
+          ? 'bg-white border-b border-[#e5efee] shadow-sm' 
+          : 'bg-white/80 backdrop-blur-md border-b border-transparent'
       }`}
     >
-      {/* Main Nav */}
       <div className="container-wide">
-        <div className="flex items-center justify-between h-[76px]">
+        <div className="flex items-center justify-between h-[72px] md:h-[80px]">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 z-50">
-            <div className="w-10 h-10 bg-[#0d9488] rounded-md flex items-center justify-center">
-              <span className="text-white font-bold text-lg">H</span>
+          <Link href="/" className="flex items-center gap-3 z-[110]" onClick={() => setMobileOpen(false)}>
+            <div className="w-10 h-10 bg-[#0d9488] rounded-md flex items-center justify-center flex-shrink-0">
+              <span className="text-white font-bold text-xl">H</span>
             </div>
             <div className="leading-tight">
               <span className="font-extrabold text-xl text-slate-900 tracking-tight">Humanity</span>
-              <span className="block text-[10px] text-slate-500 font-medium tracking-widest uppercase -mt-0.5">Care &amp; Support Services</span>
+              <span className="block text-[10px] text-slate-500 font-bold tracking-[0.1em] uppercase mt-0.5 whitespace-nowrap">Care &amp; Support Services</span>
             </div>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden xl:flex items-center gap-0.5">
+          <nav className="hidden xl:flex items-center gap-1">
             {NAV_LINKS.map((link) => (
               <div
                 key={link.label}
@@ -55,104 +63,149 @@ export default function Header() {
               >
                 <Link
                   href={link.href}
-                  className="px-3 py-2 rounded-lg text-base font-semibold text-slate-800 hover:text-[#0d9488] hover:bg-[#f1f8f7] transition-all flex items-center gap-1"
+                  className="px-4 py-2 rounded-lg text-base font-semibold text-slate-800 hover:text-[#0d9488] hover:bg-[#f1f8f7] transition-all flex items-center gap-1.5"
                 >
                   {link.label}
-                  {link.children && <ChevronDown className="w-3.5 h-3.5" />}
+                  {link.children && <ChevronDown className="w-4 h-4 opacity-40" />}
                 </Link>
 
-                {link.children && dropdownOpen === link.label && (
-                  <div className="absolute top-full left-0 pt-2">
-                    <div className="bg-white rounded-xl shadow-2xl shadow-black/10 border border-slate-100 py-2 min-w-[220px]">
-                      {link.children.map((child) => (
-                        <Link
-                          key={child.label}
-                          href={child.href}
-                          className="block px-4 py-2.5 text-sm text-slate-600 hover:text-[#0d9488] hover:bg-[#f1f8f7] transition-colors"
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
+                <AnimatePresence>
+                  {link.children && dropdownOpen === link.label && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute top-full left-0 pt-2"
+                    >
+                      <div className="bg-white rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.1)] border border-slate-100 py-2 min-w-[200px] overflow-hidden">
+                        {link.children.map((child) => (
+                          <Link
+                            key={child.label}
+                            href={child.href}
+                            className="block px-4 py-2.5 text-sm font-semibold text-slate-600 hover:text-[#0d9488] hover:bg-slate-50 transition-colors"
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             ))}
           </nav>
 
           {/* Desktop CTA */}
-          <div className="hidden xl:flex items-center gap-3">
-            <a href={`tel:${SITE_CONFIG.phone.replace(/\s/g, '')}`} className="text-[#0f172a] font-extrabold text-lg tracking-tight">
-            07877 200 381
+          <div className="hidden xl:flex items-center gap-6">
+            <a href={`tel:${SITE_CONFIG.phone.replace(/\s/g, '')}`} className="text-lg font-bold text-slate-900 hover:text-[#0d9488] transition-colors">
+              {SITE_CONFIG.phone}
             </a>
-            <Link href="/contact" className="bg-[#0d9488] text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-[#0b7f75] transition-colors">
+            <Link href="/contact" className="bg-[#0d9488] text-white px-6 py-2.5 rounded-md text-sm font-bold hover:bg-[#0b7f75] transition-all shadow-sm">
               Call Now
             </Link>
           </div>
 
-          {/* Mobile Toggle */}
+          {/* Mobile Toggle Button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="xl:hidden z-50 p-2 rounded-lg text-slate-700"
+            className="xl:hidden z-[110] p-2 -mr-2 text-slate-700"
             aria-label="Toggle menu"
           >
-            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <div
-        className={`fixed inset-0 bg-white z-40 transition-all duration-500 xl:hidden ${
-          mobileOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full pointer-events-none'
-        }`}
-      >
-        <div className="pt-32 px-6 pb-8 h-full overflow-y-auto">
-          <nav className="space-y-1">
-            {NAV_LINKS.map((link) => (
-              <div key={link.label}>
-                <Link
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="block px-4 py-3.5 text-lg font-medium text-slate-800 hover:text-[#0d9488] hover:bg-[#f1f8f7] rounded-xl transition-all"
+      {/* Regular Mobile Menu Overlay */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: '100vh' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="fixed inset-0 bg-white z-[90] xl:hidden flex flex-col"
+          >
+            <div className="flex flex-col h-full pt-[80px]">
+              <nav className="flex-1 overflow-y-auto px-6 py-8">
+                <div className="space-y-1">
+                  {NAV_LINKS.map((link) => (
+                    <div key={link.label} className="border-b border-slate-50 last:border-0">
+                      {link.children ? (
+                        <button
+                          onClick={() => toggleMobileSubmenu(link.label)}
+                          className="flex items-center justify-between w-full py-5 text-xl font-bold text-slate-900 text-left"
+                        >
+                          {link.label}
+                          <motion.div
+                            animate={{ rotate: expandedMobileLink === link.label ? 180 : 0 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <ChevronDown className="w-5 h-5 opacity-40" />
+                          </motion.div>
+                        </button>
+                      ) : (
+                        <Link
+                          href={link.href}
+                          onClick={() => setMobileOpen(false)}
+                          className="block py-5 text-xl font-bold text-slate-900"
+                        >
+                          {link.label}
+                        </Link>
+                      )}
+                      
+                      {link.children && (
+                        <AnimatePresence>
+                          {expandedMobileLink === link.label && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: 'auto', opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.3, ease: 'easeInOut' }}
+                              className="overflow-hidden"
+                            >
+                              <div className="pl-4 pb-4 space-y-4">
+                                {link.children.map((child) => (
+                                  <Link
+                                    key={child.label}
+                                    href={child.href}
+                                    onClick={() => setMobileOpen(false)}
+                                    className="block text-base font-semibold text-slate-500 hover:text-[#0d9488] active:text-[#0d9488]"
+                                  >
+                                    {child.label}
+                                  </Link>
+                                ))}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </nav>
+
+              <div className="p-6 border-t border-slate-100 bg-slate-50 space-y-4">
+                <a
+                  href={`tel:${SITE_CONFIG.phone.replace(/\s/g, '')}`}
+                  className="flex items-center justify-center gap-3 w-full py-4 text-2xl font-black text-[#0d9488]"
                 >
-                  {link.label}
+                  <Phone className="w-6 h-6" />
+                  {SITE_CONFIG.phone}
+                </a>
+                <Link
+                  href="/contact"
+                  onClick={() => setMobileOpen(false)}
+                  className="block w-full bg-[#0d9488] text-white text-center py-4 rounded-xl font-bold text-lg shadow-lg shadow-[#0d9488]/10"
+                >
+                  Request a Call Back
                 </Link>
-                {link.children && (
-                  <div className="pl-6 space-y-1 mt-1">
-                    {link.children.map((child) => (
-                      <Link
-                        key={child.label}
-                        href={child.href}
-                        onClick={() => setMobileOpen(false)}
-                        className="block px-4 py-2.5 text-base text-slate-500 hover:text-[#0d9488] hover:bg-[#f1f8f7] rounded-lg transition-all"
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
               </div>
-            ))}
-          </nav>
-          <div className="mt-8 pt-8 border-t border-slate-100 space-y-4">
-            <a
-              href={`tel:${SITE_CONFIG.phone.replace(/\s/g, '')}`}
-              className="flex items-center gap-3 px-4 py-3 text-[#0d9488] font-semibold"
-            >
-              <Phone className="w-5 h-5" />
-              07877 200 381
-            </a>
-            <Link
-              href="/contact"
-              onClick={() => setMobileOpen(false)}
-              className="block bg-[#0d9488] text-white text-center px-6 py-3.5 rounded-lg font-semibold"
-            >
-              Call Now
-            </Link>
-          </div>
-        </div>
-      </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
