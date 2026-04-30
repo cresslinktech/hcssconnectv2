@@ -47,7 +47,7 @@ export default function Header() {
               <span className="text-white font-bold text-xl">H</span>
             </div>
             <div className="leading-tight">
-              <span className="font-extrabold text-xl text-slate-900 tracking-tight">Humanity</span>
+              <span className="font-extrabold text-xl text-slate-900 tracking-tight">Humanity CSS</span>
               <span className="block text-[10px] text-slate-500 font-bold tracking-[0.1em] uppercase mt-0.5 whitespace-nowrap">Care &amp; Support Services</span>
             </div>
           </Link>
