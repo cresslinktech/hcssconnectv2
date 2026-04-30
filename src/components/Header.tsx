@@ -112,69 +112,66 @@ export default function Header() {
           {/* Mobile Toggle Button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="xl:hidden z-[110] p-2 -mr-2 text-slate-700"
+            className={`xl:hidden z-[110] p-2 -mr-2 transition-colors ${mobileOpen ? 'text-brand-600' : 'text-slate-900'}`}
             aria-label="Toggle menu"
           >
-            {mobileOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+            {mobileOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
           </button>
         </div>
       </div>
 
-      {/* Regular Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: '100vh' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="fixed inset-0 bg-white z-[90] xl:hidden flex flex-col"
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            className="fixed inset-0 bg-white z-[90] xl:hidden flex flex-col pt-[80px]"
           >
-            <div className="flex flex-col h-full pt-[80px]">
-              <nav className="flex-1 overflow-y-auto px-6 py-8">
-                <div className="space-y-1">
-                  {NAV_LINKS.map((link) => (
-                    <div key={link.label} className="border-b border-slate-50 last:border-0">
-                      {link.children ? (
+            <div className="flex-1 overflow-y-auto px-6 py-10">
+              <nav className="space-y-2">
+                {NAV_LINKS.map((link, index) => (
+                  <motion.div
+                    key={link.label}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 + index * 0.05 }}
+                    className="group"
+                  >
+                    {link.children ? (
+                      <div>
                         <button
                           onClick={() => toggleMobileSubmenu(link.label)}
-                          className="flex items-center justify-between w-full py-5 text-xl font-bold text-slate-900 text-left"
+                          className={`flex items-center justify-between w-full py-4 text-xl font-extrabold transition-colors ${
+                            expandedMobileLink === link.label ? 'text-brand-600' : 'text-slate-900'
+                          }`}
                         >
                           {link.label}
                           <motion.div
                             animate={{ rotate: expandedMobileLink === link.label ? 180 : 0 }}
                             transition={{ duration: 0.2 }}
                           >
-                            <ChevronDown className="w-5 h-5 opacity-40" />
+                            <ChevronDown className={`w-5 h-5 ${expandedMobileLink === link.label ? 'text-brand-600' : 'text-slate-400'}`} />
                           </motion.div>
                         </button>
-                      ) : (
-                        <Link
-                          href={link.href}
-                          onClick={() => setMobileOpen(false)}
-                          className="block py-5 text-xl font-bold text-slate-900"
-                        >
-                          {link.label}
-                        </Link>
-                      )}
-                      
-                      {link.children && (
+                        
                         <AnimatePresence>
                           {expandedMobileLink === link.label && (
                             <motion.div
                               initial={{ height: 0, opacity: 0 }}
                               animate={{ height: 'auto', opacity: 1 }}
                               exit={{ height: 0, opacity: 0 }}
-                              transition={{ duration: 0.3, ease: 'easeInOut' }}
-                              className="overflow-hidden"
+                              className="overflow-hidden bg-brand-50/30 rounded-xl mt-1 mb-4"
                             >
-                              <div className="pl-4 pb-4 space-y-4">
+                              <div className="py-2 px-4 space-y-1">
                                 {link.children.map((child) => (
                                   <Link
                                     key={child.label}
                                     href={child.href}
                                     onClick={() => setMobileOpen(false)}
-                                    className="block text-base font-semibold text-slate-500 hover:text-brand-600 active:text-brand-600"
+                                    className="block py-3 text-base font-bold text-slate-600 hover:text-brand-600 transition-colors"
                                   >
                                     {child.label}
                                   </Link>
@@ -183,27 +180,47 @@ export default function Header() {
                             </motion.div>
                           )}
                         </AnimatePresence>
-                      )}
-                    </div>
-                  ))}
-                </div>
+                      </div>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        onClick={() => setMobileOpen(false)}
+                        className="block py-4 text-xl font-extrabold text-slate-900 hover:text-brand-600 transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
+                  </motion.div>
+                ))}
               </nav>
+            </div>
 
-              <div className="p-6 border-t border-slate-100 bg-slate-50 space-y-4">
+            <div className="p-8 border-t border-brand-100 bg-brand-50/20">
+              <div className="space-y-4">
                 <a
                   href={`tel:${SITE_CONFIG.phone.replace(/\s/g, '')}`}
-                  className="flex items-center justify-center gap-3 w-full py-4 text-2xl font-black text-brand-600"
+                  className="flex items-center justify-center gap-3 w-full py-4 text-2xl font-black text-brand-600 bg-white rounded-xl border border-brand-100 shadow-sm"
                 >
                   <Phone className="w-6 h-6" />
                   {SITE_CONFIG.phone}
                 </a>
+                <a
+                  href={`mailto:${SITE_CONFIG.email}`}
+                  className="flex items-center justify-center gap-3 w-full py-3 text-base font-bold text-slate-600 bg-white rounded-xl border border-slate-100"
+                >
+                  <Mail className="w-5 h-5 text-brand-500" />
+                  {SITE_CONFIG.email}
+                </a>
                 <Link
                   href="/contact"
                   onClick={() => setMobileOpen(false)}
-                  className="block w-full bg-brand-600 text-white text-center py-4 rounded-xl font-bold text-lg shadow-lg shadow-brand-600/10"
+                  className="block w-full bg-brand-600 text-white text-center py-4 rounded-xl font-black text-lg shadow-lg shadow-brand-600/20 hover:bg-brand-700 transition-all active:scale-[0.98]"
                 >
                   Request a Call Back
                 </Link>
+                <div className="pt-4 text-center">
+                  <p className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em]">CQC Rated GOOD Provider</p>
+                </div>
               </div>
             </div>
           </motion.div>
