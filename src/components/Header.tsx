@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -35,20 +36,22 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
         scrolled || mobileOpen 
-          ? 'bg-white border-b border-[#e5efee] shadow-sm' 
+          ? 'bg-white border-b border-[#dbeafe] shadow-sm' 
           : 'bg-white/80 backdrop-blur-md border-b border-transparent'
       }`}
     >
       <div className="container-wide">
         <div className="flex items-center justify-between h-[72px] md:h-[80px]">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 z-[110]" onClick={() => setMobileOpen(false)}>
-            <div className="w-10 h-10 bg-[#0d9488] rounded-md flex items-center justify-center flex-shrink-0">
-              <span className="text-white font-bold text-xl">H</span>
-            </div>
-            <div className="leading-tight">
-              <span className="font-extrabold text-xl text-slate-900 tracking-tight">Humanity CSS</span>
-              <span className="block text-[10px] text-slate-500 font-bold tracking-[0.1em] uppercase mt-0.5 whitespace-nowrap">Care &amp; Support Services</span>
+          <Link href="/" className="flex items-center z-[110]" onClick={() => setMobileOpen(false)}>
+            <div className="relative h-12 w-48 md:h-14 md:w-56">
+              <Image 
+                src="/images/logo.png" 
+                alt="Humanity CSS Logo" 
+                fill 
+                className="object-contain object-left"
+                priority
+              />
             </div>
           </Link>
 
@@ -63,7 +66,7 @@ export default function Header() {
               >
                 <Link
                   href={link.href}
-                  className="px-4 py-2 rounded-lg text-base font-semibold text-slate-800 hover:text-[#0d9488] hover:bg-[#f1f8f7] transition-all flex items-center gap-1.5"
+                  className="px-4 py-2 rounded-lg text-base font-semibold text-slate-800 hover:text-brand-600 hover:bg-brand-50 transition-all flex items-center gap-1.5"
                 >
                   {link.label}
                   {link.children && <ChevronDown className="w-4 h-4 opacity-40" />}
@@ -83,7 +86,7 @@ export default function Header() {
                           <Link
                             key={child.label}
                             href={child.href}
-                            className="block px-4 py-2.5 text-sm font-semibold text-slate-600 hover:text-[#0d9488] hover:bg-slate-50 transition-colors"
+                            className="block px-4 py-2.5 text-sm font-semibold text-slate-600 hover:text-brand-600 hover:bg-slate-50 transition-colors"
                           >
                             {child.label}
                           </Link>
@@ -98,10 +101,10 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden xl:flex items-center gap-6">
-            <a href={`tel:${SITE_CONFIG.phone.replace(/\s/g, '')}`} className="text-lg font-bold text-slate-900 hover:text-[#0d9488] transition-colors">
+            <a href={`tel:${SITE_CONFIG.phone.replace(/\s/g, '')}`} className="text-lg font-bold text-slate-900 hover:text-brand-600 transition-colors">
               {SITE_CONFIG.phone}
             </a>
-            <Link href="/contact" className="bg-[#0d9488] text-white px-6 py-2.5 rounded-md text-sm font-bold hover:bg-[#0b7f75] transition-all shadow-sm">
+            <Link href="/contact" className="bg-brand-600 text-white px-6 py-2.5 rounded-md text-sm font-bold hover:bg-brand-700 transition-all shadow-sm">
               Call Now
             </Link>
           </div>
@@ -171,7 +174,7 @@ export default function Header() {
                                     key={child.label}
                                     href={child.href}
                                     onClick={() => setMobileOpen(false)}
-                                    className="block text-base font-semibold text-slate-500 hover:text-[#0d9488] active:text-[#0d9488]"
+                                    className="block text-base font-semibold text-slate-500 hover:text-brand-600 active:text-brand-600"
                                   >
                                     {child.label}
                                   </Link>
@@ -189,7 +192,7 @@ export default function Header() {
               <div className="p-6 border-t border-slate-100 bg-slate-50 space-y-4">
                 <a
                   href={`tel:${SITE_CONFIG.phone.replace(/\s/g, '')}`}
-                  className="flex items-center justify-center gap-3 w-full py-4 text-2xl font-black text-[#0d9488]"
+                  className="flex items-center justify-center gap-3 w-full py-4 text-2xl font-black text-brand-600"
                 >
                   <Phone className="w-6 h-6" />
                   {SITE_CONFIG.phone}
@@ -197,7 +200,7 @@ export default function Header() {
                 <Link
                   href="/contact"
                   onClick={() => setMobileOpen(false)}
-                  className="block w-full bg-[#0d9488] text-white text-center py-4 rounded-xl font-bold text-lg shadow-lg shadow-[#0d9488]/10"
+                  className="block w-full bg-brand-600 text-white text-center py-4 rounded-xl font-bold text-lg shadow-lg shadow-brand-600/10"
                 >
                   Request a Call Back
                 </Link>

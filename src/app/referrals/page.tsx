@@ -17,13 +17,13 @@ export default function ReferralsPage() {
 
   return (
     <>
-      <section className="bg-[#f2f8f7] pt-28 md:pt-32 pb-16">
+      <section className="bg-brand-50/50 pt-28 md:pt-32 pb-16">
         <div className="container-wide">
           <div className="grid lg:grid-cols-[1.05fr_1fr] gap-8 lg:gap-10 items-stretch">
             <FadeIn>
               <div className="py-6 md:py-10">
-                <p className="text-xs md:text-sm font-semibold tracking-[0.16em] uppercase text-[#0d9488]">Referrals</p>
-                <h1 className="mt-3 text-4xl md:text-5xl font-extrabold tracking-tight text-[#0f2d2a] leading-[1.08] max-w-3xl">
+                <p className="text-xs md:text-sm font-semibold tracking-[0.16em] uppercase text-[#2563eb]">Referrals</p>
+                <h1 className="mt-3 text-4xl md:text-5xl font-extrabold tracking-tight text-[#1e3a8a] leading-[1.08] max-w-3xl">
                   Refer a client to our care team
                 </h1>
                 <p className="mt-5 text-base md:text-lg font-medium leading-8 text-slate-800 max-w-2xl">
@@ -32,7 +32,7 @@ export default function ReferralsPage() {
               </div>
             </FadeIn>
             <FadeIn direction="right" delay={0.2}>
-              <div className="relative min-h-[340px] h-full overflow-hidden rounded-md border border-[#d6e7e5]">
+              <div className="relative min-h-[340px] h-full overflow-hidden rounded-md border border-brand-100">
                 <Image
                   src="https://images.pexels.com/photos/6749742/pexels-photo-6749742.jpeg"
                   alt="Professional completing a care referral"
@@ -50,7 +50,7 @@ export default function ReferralsPage() {
           <div className="grid lg:grid-cols-[1.1fr_1fr] gap-8 items-center">
             <FadeIn>
               <div>
-                <span className="inline-block text-[#0d9488] font-semibold text-sm uppercase tracking-wider mb-4">The Process</span>
+                <span className="inline-block text-brand-600 font-semibold text-sm uppercase tracking-wider mb-4">The Process</span>
                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight">
                   How Our Referral Process Works
                 </h2>
@@ -61,8 +61,8 @@ export default function ReferralsPage() {
                     { step: '03', title: 'Assessment', desc: 'A comprehensive needs assessment is conducted within 48 hours.' },
                     { step: '04', title: 'Care Begins', desc: 'A bespoke care plan is agreed and care can commence within 24–72 hours of referral.' },
                   ].map((item) => (
-                    <div key={item.step} className="flex gap-4 rounded-md border border-[#deeeec] bg-[#f9fcfc] p-4">
-                      <div className="w-10 h-10 bg-[#0d9488] rounded-md flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                    <div key={item.step} className="flex gap-4 rounded-md border border-brand-100 bg-brand-50/10 p-4">
+                      <div className="w-10 h-10 bg-brand-600 rounded-md flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
                         {item.step}
                       </div>
                       <div>
@@ -75,7 +75,7 @@ export default function ReferralsPage() {
               </div>
             </FadeIn>
             <FadeIn direction="right" delay={0.2}>
-              <div className="relative min-h-[340px] h-full overflow-hidden rounded-md border border-[#d6e7e5]">
+              <div className="relative min-h-[340px] h-full overflow-hidden rounded-md border border-brand-100">
                 <Image
                   src="https://images.pexels.com/photos/8204324/pexels-photo-8204324.jpeg"
                   alt="Care team reviewing referral details"
@@ -88,36 +88,36 @@ export default function ReferralsPage() {
         </div>
       </section>
 
-      <section className="bg-[#f7fbfa] py-16">
+      <section className="bg-brand-50/20 py-16">
         <div className="container-wide">
           <div className="max-w-3xl mx-auto">
             <FadeIn>
               <div className="text-center mb-12">
-                <span className="inline-block text-[#0d9488] font-semibold text-sm uppercase tracking-wider mb-4">Online Referral</span>
+                <span className="inline-block text-[#2563eb] font-semibold text-sm uppercase tracking-wider mb-4">Online Referral</span>
                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Submit a Referral</h2>
                 <p className="text-base font-medium text-slate-800">
                   Complete the form below and our team will be in touch within 2 working hours. For urgent referrals, 
-                  please call <a href={`tel:${SITE_CONFIG.phone.replace(/\s/g, '')}`} className="text-[#0d9488] font-semibold hover:underline">{SITE_CONFIG.phone}</a>.
+                  please call <a href={`tel:${SITE_CONFIG.phone.replace(/\s/g, '')}`} className="text-[#2563eb] font-semibold hover:underline">{SITE_CONFIG.phone}</a>.
                 </p>
               </div>
             </FadeIn>
 
             <FadeIn delay={0.2}>
               {submitted ? (
-                <div className="bg-white rounded-xl border border-[#dcebe9] p-12 text-center">
-                  <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="bg-white rounded-xl border border-brand-100 p-12 text-center">
+                  <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
                     <CheckCircle2 className="w-8 h-8 text-green-500" />
                   </div>
                   <h3 className="text-2xl font-bold text-slate-900 mb-3">Referral Submitted</h3>
                   <p className="text-base font-medium text-slate-800 mb-6">
                     Thank you for your referral. Our team will review the details and contact you within 2 working hours.
                   </p>
-                  <button onClick={() => setSubmitted(false)} className="rounded-md bg-[#0d9488] px-6 py-3 text-base font-semibold text-white hover:bg-[#0b7f75] transition-colors">
+                  <button onClick={() => setSubmitted(false)} className="rounded-md bg-brand-600 px-6 py-3 text-base font-semibold text-white hover:bg-brand-700 transition-colors">
                     Submit Another Referral
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="bg-white rounded-xl border border-[#dcebe9] p-8 md:p-10 space-y-6">
+                <form onSubmit={handleSubmit} className="bg-white rounded-xl border border-brand-100 p-8 md:p-10 space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="referrer-name" className="block text-base font-semibold text-slate-800 mb-2">
@@ -127,7 +127,7 @@ export default function ReferralsPage() {
                         id="referrer-name"
                         type="text"
                         required
-                        className="w-full px-4 py-3 rounded-md border border-[#cfe2df] focus:border-[#0d9488] focus:ring-2 focus:ring-[#0d9488]/20 transition-all outline-none text-base"
+                        className="w-full px-4 py-3 rounded-md border border-brand-100 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all outline-none text-base"
                         placeholder="Full name"
                       />
                     </div>
@@ -138,7 +138,7 @@ export default function ReferralsPage() {
                       <input
                         id="referrer-role"
                         type="text"
-                        className="w-full px-4 py-3 rounded-md border border-[#cfe2df] focus:border-[#0d9488] focus:ring-2 focus:ring-[#0d9488]/20 transition-all outline-none text-base"
+                        className="w-full px-4 py-3 rounded-md border border-brand-100 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all outline-none text-base"
                         placeholder="e.g. Social Worker, Southwark Council"
                       />
                     </div>
@@ -153,7 +153,7 @@ export default function ReferralsPage() {
                         id="referrer-email"
                         type="email"
                         required
-                        className="w-full px-4 py-3 rounded-md border border-[#cfe2df] focus:border-[#0d9488] focus:ring-2 focus:ring-[#0d9488]/20 transition-all outline-none text-base"
+                        className="w-full px-4 py-3 rounded-md border border-brand-100 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all outline-none text-base"
                         placeholder="your@email.co.uk"
                       />
                     </div>
@@ -165,7 +165,7 @@ export default function ReferralsPage() {
                         id="referrer-phone"
                         type="tel"
                         required
-                        className="w-full px-4 py-3 rounded-md border border-[#cfe2df] focus:border-[#0d9488] focus:ring-2 focus:ring-[#0d9488]/20 transition-all outline-none text-base"
+                        className="w-full px-4 py-3 rounded-md border border-brand-100 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all outline-none text-base"
                         placeholder="Phone number"
                       />
                     </div>
@@ -178,7 +178,7 @@ export default function ReferralsPage() {
                     <input
                       id="client-name"
                       type="text"
-                      className="w-full px-4 py-3 rounded-md border border-[#cfe2df] focus:border-[#0d9488] focus:ring-2 focus:ring-[#0d9488]/20 transition-all outline-none text-base"
+                      className="w-full px-4 py-3 rounded-md border border-brand-100 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all outline-none text-base"
                       placeholder="Client's full name"
                     />
                   </div>
@@ -190,7 +190,7 @@ export default function ReferralsPage() {
                     <select
                       id="service-needed"
                       required
-                      className="w-full px-4 py-3 rounded-md border border-[#cfe2df] focus:border-[#0d9488] focus:ring-2 focus:ring-[#0d9488]/20 transition-all outline-none bg-white text-base"
+                      className="w-full px-4 py-3 rounded-md border border-brand-100 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all outline-none bg-white text-base"
                     >
                       <option value="">Select a service</option>
                       <option value="personal-care">Personal Care</option>
@@ -211,7 +211,7 @@ export default function ReferralsPage() {
                       id="referral-details"
                       required
                       rows={5}
-                      className="w-full px-4 py-3 rounded-md border border-[#cfe2df] focus:border-[#0d9488] focus:ring-2 focus:ring-[#0d9488]/20 transition-all outline-none resize-none text-base"
+                      className="w-full px-4 py-3 rounded-md border border-brand-100 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all outline-none resize-none text-base"
                       placeholder="Please provide a brief overview of the client's needs, current situation, and any relevant background..."
                     />
                   </div>
@@ -221,16 +221,16 @@ export default function ReferralsPage() {
                       id="consent"
                       type="checkbox"
                       required
-                      className="mt-1 w-4 h-4 text-[#0d9488] border-[#cfe2df] rounded focus:ring-[#0d9488]"
+                      className="mt-1 w-4 h-4 text-brand-600 border-brand-100 rounded focus:ring-brand-500"
                     />
                     <label htmlFor="consent" className="text-base font-medium text-slate-800">
                       I confirm that I have the appropriate authority to make this referral 
                       and the client (or their representative) has given consent for their information 
-                      to be shared with HCSS Connect. <span className="text-red-500">*</span>
+                      to be shared with Humanity CSS. <span className="text-red-500">*</span>
                     </label>
                   </div>
 
-                  <button type="submit" className="inline-flex w-full sm:w-auto items-center justify-center rounded-md bg-[#0d9488] px-6 py-3 text-base font-semibold text-white hover:bg-[#0b7f75] transition-colors">
+                  <button type="submit" className="inline-flex w-full sm:w-auto items-center justify-center rounded-md bg-[#2563eb] px-6 py-3 text-base font-semibold text-white hover:bg-[#1d4ed8] transition-colors">
                     <Send className="w-4 h-4 mr-2" />
                     Submit Referral
                   </button>

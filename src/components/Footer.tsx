@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { Phone, Mail } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/constants';
@@ -6,28 +7,30 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#f4faf9] text-slate-600 border-t border-[#dcebe9]">
+    <footer className="bg-brand-50/30 text-slate-600 border-t border-brand-100">
       <div className="container-wide py-14 lg:py-16">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 lg:gap-8">
           <div className="col-span-2 md:col-span-3 lg:col-span-1">
-            <Link href="/" className="flex items-center gap-3 mb-5">
-              <div className="w-9 h-9 bg-[#0d9488] rounded-md flex items-center justify-center">
-                <span className="text-white font-bold">H</span>
-              </div>
-              <div className="leading-tight">
-                <span className="font-bold text-lg text-slate-900">Humanity CSS</span>
+            <Link href="/" className="flex items-center mb-5">
+              <div className="relative h-10 w-40">
+                <Image 
+                  src="/images/logo.png" 
+                  alt="Humanity CSS Logo" 
+                  fill 
+                  className="object-contain object-left"
+                />
               </div>
             </Link>
             <p className="text-slate-600 text-sm leading-relaxed mb-5 max-w-xs">
               CQC Rated GOOD specialist domiciliary care across London. Compassion, dignity, excellence.
             </p>
             <div className="space-y-2 text-sm">
-              <a href={`tel:${SITE_CONFIG.phone.replace(/\s/g, '')}`} className="flex items-center gap-2 text-slate-600 hover:text-[#0d9488] transition-colors">
-                <Phone className="w-4 h-4 text-[#0d9488]" />
+              <a href={`tel:${SITE_CONFIG.phone.replace(/\s/g, '')}`} className="flex items-center gap-2 text-slate-600 hover:text-brand-600 transition-colors">
+                <Phone className="w-4 h-4 text-brand-500" />
                 {SITE_CONFIG.phone}
               </a>
-              <a href={`mailto:${SITE_CONFIG.email}`} className="flex items-center gap-2 text-slate-600 hover:text-[#0d9488] transition-colors">
-                <Mail className="w-4 h-4 text-[#0d9488]" />
+              <a href={`mailto:${SITE_CONFIG.email}`} className="flex items-center gap-2 text-slate-600 hover:text-brand-600 transition-colors">
+                <Mail className="w-4 h-4 text-brand-500" />
                 {SITE_CONFIG.email}
               </a>
             </div>
@@ -46,7 +49,7 @@ export default function Footer() {
                 { label: 'Live-in Care', href: '/services' },
               ].map((item) => (
                 <li key={item.label}>
-                  <Link href={item.href} className="text-sm text-slate-600 hover:text-[#0d9488] transition-colors">
+                  <Link href={item.href} className="text-sm text-slate-600 hover:text-brand-600 transition-colors">
                     {item.label}
                   </Link>
                 </li>
@@ -66,7 +69,7 @@ export default function Footer() {
                 { label: 'Contact', href: '/contact' },
               ].map((item) => (
                 <li key={item.label}>
-                  <Link href={item.href} className="text-sm text-slate-600 hover:text-[#0d9488] transition-colors">
+                  <Link href={item.href} className="text-sm text-slate-600 hover:text-brand-600 transition-colors">
                     {item.label}
                   </Link>
                 </li>
@@ -88,7 +91,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-[#dcebe9]">
+      <div className="border-t border-brand-100">
         <div className="container-wide py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-slate-500">
             © {currentYear} {SITE_CONFIG.name}. All rights reserved. CQC Registered Provider.
