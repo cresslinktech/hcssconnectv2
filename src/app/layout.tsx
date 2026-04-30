@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   description:
     'Specialist domiciliary care for complex needs, mental health, and addiction recovery. CQC Rated GOOD with over 40 years of combined experience serving London communities.',
   keywords: 'home care London, domiciliary care, CQC rated, complex care, mental health support, addiction recovery, personal care London',
+  icons: {
+    icon: '/images/logo.png',
+    apple: '/images/logo.png',
+  },
 };
 
 export default function RootLayout({
