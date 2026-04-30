@@ -15,7 +15,7 @@ export default function Footer() {
                 <span className="text-white font-bold">H</span>
               </div>
               <div className="leading-tight">
-                <span className="font-bold text-lg text-slate-900">Humanity</span>
+                <span className="font-bold text-lg text-slate-900">Humanity CSS</span>
               </div>
             </Link>
             <p className="text-slate-600 text-sm leading-relaxed mb-5 max-w-xs">
