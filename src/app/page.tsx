@@ -50,8 +50,8 @@ export default function HomePage() {
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/15 to-transparent" />
-                <div className="absolute top-4 right-4 md:top-5 md:right-5 w-[138px] rounded-md border border-[#d9e8e6] bg-white p-2 shadow-sm">
-                  <div className="relative h-8 w-full rounded border border-[#e3d8ef] bg-white overflow-hidden">
+                <div className="absolute top-4 right-4 md:top-5 md:right-5 w-[138px] rounded-md border border-brand-100 bg-white p-2 shadow-sm">
+                  <div className="relative h-8 w-full rounded border border-brand-100 bg-white overflow-hidden">
                     <Image
                       src="/images/cqc-logo.svg"
                       alt="Care Quality Commission logo"
@@ -113,7 +113,7 @@ export default function HomePage() {
 
       <section className="bg-white pb-14">
         <div className="container-wide">
-          <FadeIn className="relative h-[300px] md:h-[430px] overflow-hidden rounded-md border border-[#dbe8e6]">
+          <FadeIn className="relative h-[300px] md:h-[430px] overflow-hidden rounded-md border border-brand-100">
             <Image
               src="https://images.pexels.com/photos/7345446/pexels-photo-7345446.jpeg"
               alt="Carer supporting elderly person in home setting"
@@ -156,7 +156,7 @@ export default function HomePage() {
               </div>
             </FadeIn>
 
-            <FadeIn direction="right" className="relative min-h-[360px] rounded-md overflow-hidden border border-[#c8e0dc]">
+            <FadeIn direction="right" className="relative min-h-[360px] rounded-md overflow-hidden border border-accent-200">
               <Image
                 src="https://images.pexels.com/photos/3768114/pexels-photo-3768114.jpeg"
                 alt="Care worker smiling with client in London"
@@ -170,7 +170,7 @@ export default function HomePage() {
 
       <section className="bg-white py-14 md:py-20">
         <div className="container-wide grid lg:grid-cols-[1fr_1fr] gap-8 items-start">
-          <FadeIn className="rounded-md border border-[#dbeafe] bg-white p-7">
+          <FadeIn className="rounded-md border border-brand-100 bg-white p-7">
             <h3 className="text-2xl font-bold text-slate-900">What Makes Us Different</h3>
             <ul className="mt-5 space-y-3">
               {[
@@ -186,7 +186,7 @@ export default function HomePage() {
               ))}
             </ul>
           </FadeIn>
-          <FadeIn direction="right" className="rounded-md border border-[#dbeafe] bg-[#f8fbff] p-6">
+          <FadeIn direction="right" className="rounded-md border border-brand-100 bg-brand-50/10 p-6">
             <h3 className="text-base font-semibold tracking-wide uppercase text-slate-700 mb-4">Areas We Cover</h3>
             <div className="grid sm:grid-cols-2 gap-3">
               {AREAS.map((area) => (
@@ -196,7 +196,7 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
-            <div className="mt-5 relative h-[220px] rounded-md overflow-hidden border border-[#dcebe9]">
+            <div className="mt-5 relative h-[220px] rounded-md overflow-hidden border border-accent-200">
               <Image
                 src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80"
                 alt="London map style placeholder"

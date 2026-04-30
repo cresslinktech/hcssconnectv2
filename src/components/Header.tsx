@@ -36,7 +36,7 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
         scrolled || mobileOpen 
-          ? 'bg-white border-b border-[#dbeafe] shadow-sm' 
+          ? 'bg-white border-b border-brand-100 shadow-sm' 
           : 'bg-white/80 backdrop-blur-md border-b border-transparent'
       }`}
     >

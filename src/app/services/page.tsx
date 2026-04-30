@@ -28,8 +28,8 @@ export default function ServicesPage() {
           <div className="grid lg:grid-cols-[1.05fr_1fr] gap-8 lg:gap-10 items-stretch">
             <FadeIn>
               <div className="py-6 md:py-10">
-                <p className="text-xs md:text-sm font-semibold tracking-[0.16em] uppercase text-[#2563eb]">Our Services</p>
-                <h1 className="mt-3 text-4xl md:text-5xl font-extrabold tracking-tight text-[#1e3a8a] leading-[1.08]">
+                <p className="text-xs md:text-sm font-semibold tracking-[0.16em] uppercase text-brand-600">Our Services</p>
+                <h1 className="mt-3 text-4xl md:text-5xl font-extrabold tracking-tight text-brand-900 leading-[1.08]">
                   Specialist care services across London
                 </h1>
                 <p className="mt-5 text-base md:text-lg font-medium leading-8 text-slate-800 max-w-2xl">

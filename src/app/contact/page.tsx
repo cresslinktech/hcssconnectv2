@@ -22,8 +22,8 @@ export default function ContactPage() {
           <div className="grid lg:grid-cols-[1.05fr_1fr] gap-8 lg:gap-10 items-stretch">
             <FadeIn>
               <div className="py-6 md:py-10">
-                <p className="text-xs md:text-sm font-semibold tracking-[0.16em] uppercase text-[#2563eb]">Contact Us</p>
-                <h1 className="mt-3 text-4xl md:text-5xl font-extrabold tracking-tight text-[#1e3a8a] leading-[1.08] max-w-3xl">
+                <p className="text-xs md:text-sm font-semibold tracking-[0.16em] uppercase text-brand-600">Contact Us</p>
+                <h1 className="mt-3 text-4xl md:text-5xl font-extrabold tracking-tight text-brand-900 leading-[1.08] max-w-3xl">
                   Get in touch with our care team
                 </h1>
                 <p className="mt-5 text-base md:text-lg font-medium leading-8 text-slate-800 max-w-2xl">
@@ -116,8 +116,8 @@ export default function ContactPage() {
                 <h2 className="text-2xl font-bold text-slate-900 mb-8">Send Us a Message</h2>
 
                 {submitted ? (
-                  <div className="bg-brand-50/30 rounded-xl border border-brand-100 p-12 text-center">
-                    <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <div className="bg-brand-50/20 rounded-xl border border-brand-100 p-12 text-center">
+                    <div className="w-16 h-16 bg-brand-50 rounded-full flex items-center justify-center mx-auto mb-6">
                       <CheckCircle2 className="w-8 h-8 text-green-500" />
                     </div>
                     <h3 className="text-2xl font-bold text-slate-900 mb-3">Message Sent!</h3>
@@ -129,7 +129,7 @@ export default function ContactPage() {
                     </button>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6 rounded-xl border border-[#dbeafe] bg-[#f8fbff] p-6 md:p-8">
+                  <form onSubmit={handleSubmit} className="space-y-6 rounded-xl border border-brand-100 bg-brand-50/10 p-6 md:p-8">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
                         <label htmlFor="contact-name" className="block text-base font-semibold text-slate-800 mb-2">

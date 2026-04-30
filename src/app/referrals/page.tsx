@@ -22,8 +22,8 @@ export default function ReferralsPage() {
           <div className="grid lg:grid-cols-[1.05fr_1fr] gap-8 lg:gap-10 items-stretch">
             <FadeIn>
               <div className="py-6 md:py-10">
-                <p className="text-xs md:text-sm font-semibold tracking-[0.16em] uppercase text-[#2563eb]">Referrals</p>
-                <h1 className="mt-3 text-4xl md:text-5xl font-extrabold tracking-tight text-[#1e3a8a] leading-[1.08] max-w-3xl">
+                <p className="text-xs md:text-sm font-semibold tracking-[0.16em] uppercase text-brand-600">Referrals</p>
+                <h1 className="mt-3 text-4xl md:text-5xl font-extrabold tracking-tight text-brand-900 leading-[1.08] max-w-3xl">
                   Refer a client to our care team
                 </h1>
                 <p className="mt-5 text-base md:text-lg font-medium leading-8 text-slate-800 max-w-2xl">
@@ -93,11 +93,11 @@ export default function ReferralsPage() {
           <div className="max-w-3xl mx-auto">
             <FadeIn>
               <div className="text-center mb-12">
-                <span className="inline-block text-[#2563eb] font-semibold text-sm uppercase tracking-wider mb-4">Online Referral</span>
+                <span className="inline-block text-brand-600 font-semibold text-sm uppercase tracking-wider mb-4">Online Referral</span>
                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Submit a Referral</h2>
                 <p className="text-base font-medium text-slate-800">
                   Complete the form below and our team will be in touch within 2 working hours. For urgent referrals, 
-                  please call <a href={`tel:${SITE_CONFIG.phone.replace(/\s/g, '')}`} className="text-[#2563eb] font-semibold hover:underline">{SITE_CONFIG.phone}</a>.
+                  please call <a href={`tel:${SITE_CONFIG.phone.replace(/\s/g, '')}`} className="text-brand-600 font-semibold hover:underline">{SITE_CONFIG.phone}</a>.
                 </p>
               </div>
             </FadeIn>
@@ -230,7 +230,7 @@ export default function ReferralsPage() {
                     </label>
                   </div>
 
-                  <button type="submit" className="inline-flex w-full sm:w-auto items-center justify-center rounded-md bg-[#2563eb] px-6 py-3 text-base font-semibold text-white hover:bg-[#1d4ed8] transition-colors">
+                  <button type="submit" className="inline-flex w-full sm:w-auto items-center justify-center rounded-md bg-brand-600 px-6 py-3 text-base font-semibold text-white hover:bg-brand-700 transition-colors">
                     <Send className="w-4 h-4 mr-2" />
                     Submit Referral
                   </button>

@@ -18,18 +18,18 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-[1.05fr_1fr] gap-8 lg:gap-10 items-stretch">
             <FadeIn>
               <div className="py-6 md:py-10">
-                <p className="text-xs md:text-sm font-semibold tracking-[0.16em] uppercase text-[#2563eb]">About Us</p>
-                <h1 className="mt-3 text-4xl md:text-5xl font-extrabold tracking-tight text-[#1e3a8a] leading-[1.08]">
+                <p className="text-xs md:text-sm font-semibold tracking-[0.16em] uppercase text-brand-600">About Us</p>
+                <h1 className="mt-3 text-4xl md:text-5xl font-extrabold tracking-tight text-brand-900 leading-[1.08]">
                   Trusted domiciliary care across London
                 </h1>
                 <p className="mt-5 text-base md:text-lg font-medium leading-8 text-slate-800 max-w-2xl">
                   Humanity CSS is a domiciliary care provider based in Southwark, delivering high-quality care across London.
                 </p>
                 <div className="mt-7 flex flex-wrap gap-3">
-                  <Link href="/contact" className="rounded-md bg-[#2563eb] px-6 py-3 text-base font-semibold text-white hover:bg-[#1d4ed8] transition-colors">
+                  <Link href="/contact" className="rounded-md bg-brand-600 px-6 py-3 text-base font-semibold text-white hover:bg-brand-700 transition-colors">
                     Request a Call Back
                   </Link>
-                  <Link href="/referrals" className="rounded-md border border-[#60a5fa] px-6 py-3 text-base font-semibold text-slate-800 hover:bg-white transition-colors">
+                  <Link href="/referrals" className="rounded-md border border-accent-400 px-6 py-3 text-base font-semibold text-slate-800 hover:bg-white transition-colors">
                     Refer a Client
                   </Link>
                 </div>
