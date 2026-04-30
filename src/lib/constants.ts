@@ -2,7 +2,7 @@ export const SITE_CONFIG = {
   name: 'Humanity CSS',
   tagline: 'Specialist Domiciliary Care',
   phone: '07877 200 381',
-  email: 'info@hcssconnect.co.uk',
+  email: 'humanitycss@gmail.com',
   address: 'London, United Kingdom',
   cqcRating: 'GOOD',
 };
