@@ -18,7 +18,7 @@ export default function ReferralsPage() {
     setSubmitError(null);
 
     const formData = new FormData(e.currentTarget);
-    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE";
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "d66d4890-d72f-4a92-a1c9-50171f52cc60";
     formData.append("access_key", accessKey);
     formData.append("subject", "New Client Referral Submission");
     formData.append("from_name", "Humanity CSS Referrals Form");
