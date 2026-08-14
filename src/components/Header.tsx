@@ -5,8 +5,8 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, Mail, ChevronDown, X, Menu, BadgeCheck, Home, Info, HeartHandshake, Car, UserPlus } from 'lucide-react';
-import { NAV_LINKS, SITE_CONFIG } from '@/lib/constants';
+import { Phone, Mail, ChevronDown, X, Menu, BadgeCheck, Home, Info, HeartHandshake, Car, UserPlus, MapPin } from 'lucide-react';
+import { NAV_LINKS, SITE_CONFIG, AREAS } from '@/lib/constants';
 
 const NAV_ICONS: Record<string, React.ReactNode> = {
   'Home': <Home className="w-[18px] h-[18px]" />,
@@ -71,12 +71,25 @@ export default function Header() {
                 {SITE_CONFIG.email}
               </a>
             </div>
-            <div className="flex items-center gap-2 md:gap-4 flex-shrink-0">
+            <div className="flex items-center gap-3 md:gap-4 flex-shrink-0">
               <span className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-white/15 px-2.5 py-1 whitespace-nowrap">
                 <BadgeCheck className="w-3 h-3 flex-shrink-0" />
                 CQC Rated GOOD
               </span>
-              <span className="hidden lg:inline text-brand-200">Mon to Fri 8am to 6pm &middot; 24/7 emergency line</span>
+              <span className="hidden md:inline-flex items-center gap-1.5 text-brand-200 whitespace-nowrap">
+                <MapPin className="w-3 h-3 flex-shrink-0" />
+                {AREAS.slice(0, 3).map((a) => a.name).join(' · ')}
+              </span>
+              <span className="hidden lg:inline text-brand-200 whitespace-nowrap">Mon to Fri 8am to 6pm</span>
+              {SITE_CONFIG.mobile && (
+                <a
+                  href={`tel:${SITE_CONFIG.mobile.replace(/\s/g, '')}`}
+                  className="hidden xl:flex items-center gap-1.5 rounded-full bg-accent-500/20 px-2.5 py-1 text-accent-100 hover:bg-accent-500/30 transition-colors whitespace-nowrap"
+                >
+                  <Phone className="w-3 h-3 flex-shrink-0" />
+                  24/7 Emergency: {SITE_CONFIG.mobile}
+                </a>
+              )}
             </div>
           </div>
         </div>
