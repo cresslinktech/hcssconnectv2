@@ -72,9 +72,10 @@ export default function Header() {
               </a>
             </div>
             <div className="flex items-center gap-3 md:gap-4 flex-shrink-0">
-              <span className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-white/15 px-2.5 py-1 whitespace-nowrap">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-2.5 py-1 whitespace-nowrap">
                 <BadgeCheck className="w-3 h-3 flex-shrink-0" />
-                CQC Rated GOOD
+                <span className="sm:hidden">CQC GOOD</span>
+                <span className="hidden sm:inline">CQC Rated GOOD</span>
               </span>
               <span className="hidden md:inline-flex items-center gap-1.5 text-brand-200 whitespace-nowrap">
                 <MapPin className="w-3 h-3 flex-shrink-0" />
