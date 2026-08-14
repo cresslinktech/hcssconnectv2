@@ -119,7 +119,7 @@ export default function SchoolRunPage() {
               <div className="py-8 md:py-12">
                 <p className="inline-flex items-center gap-2 text-xs md:text-sm font-bold tracking-[0.14em] uppercase text-brand-600 mb-4">
                   <span className="h-[2px] w-5 bg-spark-500 inline-block rounded-full" />
-                  School Run Transport &middot; South East London
+                  School Run Transport &middot; Across London
                 </p>
                 <h1 className="text-[2.15rem] md:text-5xl font-extrabold tracking-tight text-brand-900 leading-[1.06] mb-5">
                   Driven by Care, Delivered with Reliability
@@ -194,7 +194,7 @@ export default function SchoolRunPage() {
             <div className="order-1 lg:order-2 lg:pl-4">
               <p className="text-xs md:text-sm font-semibold tracking-[0.16em] uppercase text-brand-600">About Our School Run Service</p>
               <h2 className="mt-2 text-3xl md:text-4xl font-bold text-slate-900 leading-tight">
-                South East London&rsquo;s specialist in school run transport
+                Across London&rsquo;s specialist in school run transport
               </h2>
               <p className="mt-4 text-base md:text-lg font-medium leading-8 text-slate-800">
                 We are a specialized transport company with expertise in school run and SEND (Special Educational Needs and Disabilities) transport across South East London. Our trained professionals understand the unique needs of children with additional requirements, ensuring safe and comfortable journeys to and from school, every day.
