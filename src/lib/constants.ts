@@ -20,7 +20,7 @@ export const SITE_CONFIG: SiteConfig = {
 
 export const NAV_LINKS = [
   { label: 'Home', href: '/' },
-  { label: 'About Us', href: '/about' },
+  { label: 'School Run', href: '/school-run' },
   {
     label: 'Our Services',
     href: '/services',
@@ -30,6 +30,7 @@ export const NAV_LINKS = [
       { label: 'Drug, Alcohol & Dual Diagnosis', href: '/services/drug-alcohol-dual-diagnosis' },
     ],
   },
+  { label: 'About Us', href: '/about' },
   { label: 'Referrals', href: '/referrals' },
   { label: 'Contact', href: '/contact' },
 ];
@@ -58,6 +59,12 @@ export const SERVICES = [
     description: 'Specialist care for individuals with complex medical needs, including PEG feeding and tracheostomy care.',
     icon: 'Activity',
     href: '/services/complex-care',
+  },
+  {
+    title: 'School Run',
+    description: 'Safe, punctual school run transport for mainstream and SEND placements across South East London.',
+    icon: 'Car',
+    href: '/school-run',
   },
 ];
 

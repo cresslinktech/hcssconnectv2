@@ -20,7 +20,7 @@ export default function GlobalCTA() {
             </div>
 
             <div className="flex flex-wrap items-center gap-3 flex-shrink-0">
-              <Link href="/contact" className="bg-white text-brand-700 px-6 py-3.5 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-sm">
+              <Link href="/contact" className="bg-white text-accent-700 px-6 py-3.5 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-sm">
                 Request a Call Back
               </Link>
               <Link href="/referrals" className="border-2 border-white/30 text-white px-6 py-3.5 rounded-lg font-semibold hover:bg-white/10 transition-colors text-sm">

@@ -18,7 +18,7 @@ export default function ContactPage() {
     setSubmitError(null);
 
     const formData = new FormData(e.currentTarget);
-    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "d66d4890-d72f-4a92-a1c9-50171f52cc60";
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE";
     formData.append("access_key", accessKey);
     formData.append("subject", "New Contact Form Submission");
     formData.append("from_name", "Humanity CSS Contact Form");
@@ -45,8 +45,9 @@ export default function ContactPage() {
 
   return (
     <>
-      <section className="bg-brand-50/50 pt-28 md:pt-32 pb-16">
-        <div className="container-wide">
+      <section className="relative overflow-hidden bg-brand-50/50 pt-36 md:pt-40 pb-16">
+        <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-brand-100/60 blur-3xl" />
+        <div className="container-wide relative">
           <div className="grid lg:grid-cols-[1.05fr_1fr] gap-8 lg:gap-10 items-stretch">
             <FadeIn>
               <div className="py-6 md:py-10">
@@ -60,13 +61,16 @@ export default function ContactPage() {
               </div>
             </FadeIn>
             <FadeIn direction="right" delay={0.2}>
-              <div className="relative min-h-[340px] h-full overflow-hidden rounded-md border border-brand-100">
-                <Image
-                  src="https://images.pexels.com/photos/7658404/pexels-photo-7658404.jpeg"
-                  alt="Support team member assisting a client"
-                  fill
-                  className="object-cover"
-                />
+              <div className="relative min-h-[340px] h-full">
+                <div className="pointer-events-none absolute -top-6 -right-6 h-2/3 w-2/3 rounded-full bg-spark-500/15 blur-2xl" />
+                <div className="relative min-h-[340px] h-full overflow-hidden rounded-[44%_56%_62%_38%/46%_40%_60%_54%] border border-brand-100">
+                  <Image
+                    src="https://images.pexels.com/photos/7658404/pexels-photo-7658404.jpeg"
+                    alt="Support team member assisting a client"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
               </div>
             </FadeIn>
           </div>
@@ -83,7 +87,7 @@ export default function ContactPage() {
 
                 <div className="space-y-6 mb-10">
                   <a href={`tel:${SITE_CONFIG.phone.replace(/\s/g, '')}`} className="flex items-start gap-4 group">
-                    <div className="w-12 h-12 bg-brand-50 rounded-md flex items-center justify-center text-brand-600 flex-shrink-0 transition-all">
+                    <div className="w-12 h-12 bg-accent-50 rounded-md flex items-center justify-center text-accent-600 flex-shrink-0 transition-all">
                       <Phone className="w-5 h-5" />
                     </div>
                     <div>
@@ -95,7 +99,7 @@ export default function ContactPage() {
 
                   {SITE_CONFIG.mobile && (
                     <a href={`tel:${SITE_CONFIG.mobile.replace(/\s/g, '')}`} className="flex items-start gap-4 group">
-                      <div className="w-12 h-12 bg-brand-50 rounded-md flex items-center justify-center text-brand-600 flex-shrink-0 transition-all">
+                      <div className="w-12 h-12 bg-accent-50 rounded-md flex items-center justify-center text-accent-600 flex-shrink-0 transition-all">
                         <Phone className="w-5 h-5" />
                       </div>
                       <div>
@@ -107,7 +111,7 @@ export default function ContactPage() {
                   )}
 
                   <a href={`mailto:${SITE_CONFIG.email}`} className="flex items-start gap-4 group">
-                    <div className="w-12 h-12 bg-brand-50 rounded-md flex items-center justify-center text-brand-600 flex-shrink-0 transition-all">
+                    <div className="w-12 h-12 bg-accent-50 rounded-md flex items-center justify-center text-accent-600 flex-shrink-0 transition-all">
                       <Mail className="w-5 h-5" />
                     </div>
                     <div>
@@ -133,19 +137,25 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="text-base font-semibold text-slate-900 mb-1">Office Hours</h3>
-                      <p className="text-base font-medium text-slate-800">Monday – Friday: 8:00 AM – 6:00 PM</p>
-                      <p className="text-base font-medium text-slate-800">Saturday: 9:00 AM – 1:00 PM</p>
+                      <p className="text-base font-medium text-slate-800">Monday to Friday: 8:00 AM to 6:00 PM</p>
+                      <p className="text-base font-medium text-slate-800">Saturday: 9:00 AM to 1:00 PM</p>
                       <p className="text-sm font-medium text-slate-600 mt-1">24/7 emergency support available</p>
                     </div>
                   </div>
                 </div>
 
-                {/* Map placeholder */}
-                <div className="rounded-md overflow-hidden aspect-[4/3] border border-brand-100 bg-brand-50/20 flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <MapPin className="w-12 h-12 mx-auto mb-3 text-brand-600" />
-                    <p className="text-slate-900 text-base font-semibold">London, UK</p>
-                    <p className="text-slate-700 text-base font-medium mt-1">Serving Greater London</p>
+                <div className="relative rounded-md overflow-hidden aspect-[4/3] border border-brand-100">
+                  <iframe
+                    title="Map of Southwark, London"
+                    src="https://maps.google.com/maps?q=Southwark,London,UK&z=10&output=embed"
+                    className="absolute inset-0 h-full w-full grayscale-[15%]"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                  <div className="pointer-events-none absolute left-3 bottom-3 rounded-lg border border-brand-100 bg-white/95 px-3 py-2 shadow-md">
+                    <p className="text-xs font-bold text-slate-900">London, UK</p>
+                    <p className="text-[11px] font-medium text-slate-500">Serving Greater London</p>
                   </div>
                 </div>
               </FadeIn>
@@ -158,14 +168,14 @@ export default function ContactPage() {
 
                 {submitted ? (
                   <div className="bg-brand-50/20 rounded-xl border border-brand-100 p-12 text-center">
-                    <div className="w-16 h-16 bg-brand-50 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <CheckCircle2 className="w-8 h-8 text-green-500" />
+                    <div className="w-16 h-16 bg-success-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <CheckCircle2 className="w-8 h-8 text-success-500" />
                     </div>
                     <h3 className="text-2xl font-bold text-slate-900 mb-3">Message Sent!</h3>
                     <p className="text-base font-medium text-slate-800 mb-6">
                       Thank you for reaching out. Our care team will get back to you within 24 hours.
                     </p>
-                    <button onClick={() => setSubmitted(false)} className="rounded-md bg-brand-600 px-6 py-3 text-base font-semibold text-white hover:bg-brand-700 transition-colors">
+                    <button onClick={() => setSubmitted(false)} className="rounded-md bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-sm shadow-accent-500/20 hover:bg-accent-700 transition-colors">
                       Send Another Message
                     </button>
                   </div>
@@ -182,7 +192,7 @@ export default function ContactPage() {
                           type="text"
                           required
                           disabled={isSubmitting}
-                          className="w-full px-4 py-3 rounded-md border border-brand-100 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all outline-none text-base bg-white disabled:opacity-60"
+                          className="w-full px-4 py-3 rounded-md border border-brand-100 focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 transition-all outline-none text-base bg-white disabled:opacity-60"
                           placeholder="Your full name"
                         />
                       </div>
@@ -196,7 +206,7 @@ export default function ContactPage() {
                           type="email"
                           required
                           disabled={isSubmitting}
-                          className="w-full px-4 py-3 rounded-md border border-brand-100 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all outline-none text-base bg-white disabled:opacity-60"
+                          className="w-full px-4 py-3 rounded-md border border-brand-100 focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 transition-all outline-none text-base bg-white disabled:opacity-60"
                           placeholder="your@email.co.uk"
                         />
                       </div>
@@ -212,7 +222,7 @@ export default function ContactPage() {
                           name="phone"
                           type="tel"
                           disabled={isSubmitting}
-                          className="w-full px-4 py-3 rounded-md border border-brand-100 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all outline-none text-base bg-white disabled:opacity-60"
+                          className="w-full px-4 py-3 rounded-md border border-brand-100 focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 transition-all outline-none text-base bg-white disabled:opacity-60"
                           placeholder="Your phone number"
                         />
                       </div>
@@ -224,7 +234,7 @@ export default function ContactPage() {
                           id="contact-service"
                           name="service"
                           disabled={isSubmitting}
-                          className="w-full px-4 py-3 rounded-md border border-brand-100 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all outline-none bg-white text-base disabled:opacity-60"
+                          className="w-full px-4 py-3 rounded-md border border-brand-100 focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 transition-all outline-none bg-white text-base disabled:opacity-60"
                         >
                           <option value="">Select a service</option>
                           <option value="personal-care">Personal Care</option>
@@ -248,7 +258,7 @@ export default function ContactPage() {
                           required
                           disabled={isSubmitting}
                           rows={6}
-                          className="w-full px-4 py-3 rounded-md border border-brand-100 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all outline-none resize-none text-base bg-white disabled:opacity-60"
+                          className="w-full px-4 py-3 rounded-md border border-brand-100 focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 transition-all outline-none resize-none text-base bg-white disabled:opacity-60"
                           placeholder="Tell us how we can help..."
                       />
                     </div>
@@ -259,7 +269,7 @@ export default function ContactPage() {
                         type="checkbox"
                         required
                         disabled={isSubmitting}
-                        className="mt-1 w-4 h-4 text-brand-600 border-brand-100 rounded focus:ring-brand-500 disabled:opacity-60"
+                        className="mt-1 w-4 h-4 text-accent-600 border-brand-100 rounded focus:ring-accent-500 disabled:opacity-60"
                       />
                       <label htmlFor="contact-consent" className="text-base font-medium text-slate-800">
                         I agree to Humanity CSS processing my personal data in accordance with their
@@ -276,7 +286,7 @@ export default function ContactPage() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="inline-flex items-center justify-center rounded-md bg-brand-600 px-6 py-3 text-base font-semibold text-white hover:bg-brand-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-w-[170px]"
+                      className="inline-flex items-center justify-center rounded-md bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-sm shadow-accent-500/20 hover:bg-accent-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-w-[170px]"
                     >
                       {isSubmitting ? (
                         <>

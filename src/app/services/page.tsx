@@ -1,14 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Heart, Pill, Users, Activity, Brain, Shield, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Heart, Pill, Users, Activity, Car, Brain, Shield, ArrowRight, CheckCircle2 } from 'lucide-react';
 import FadeIn from '@/components/FadeIn';
 import GlobalCTA from '@/components/GlobalCTA';
 import { SERVICES } from '@/lib/constants';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Our Services | Humanity CSS — Domiciliary Care Services London',
-  description: 'Explore our comprehensive domiciliary care services including personal care, medication support, complex care, and drug, alcohol, and dual diagnosis support across London.',
+  title: 'Our Services | Humanity CSS: Domiciliary Care Services London',
+  description: 'Explore our comprehensive domiciliary care services including personal care, medication support, complex care, school run transport, and drug, alcohol, and dual diagnosis support across London.',
 };
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -16,14 +16,15 @@ const iconMap: Record<string, React.ReactNode> = {
   Pill: <Pill className="w-7 h-7" />,
   Users: <Users className="w-7 h-7" />,
   Activity: <Activity className="w-7 h-7" />,
-
+  Car: <Car className="w-7 h-7" />,
 };
 
 export default function ServicesPage() {
   return (
     <>
-      <section className="bg-brand-50/50 pt-28 md:pt-32 pb-16">
-        <div className="container-wide">
+      <section className="relative overflow-hidden bg-brand-50/50 pt-36 md:pt-40 pb-16">
+        <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-brand-100/60 blur-3xl" />
+        <div className="container-wide relative">
           <div className="grid lg:grid-cols-[1.05fr_1fr] gap-8 lg:gap-10 items-stretch">
             <FadeIn>
               <div className="py-6 md:py-10">
@@ -37,13 +38,16 @@ export default function ServicesPage() {
               </div>
             </FadeIn>
             <FadeIn direction="right" delay={0.2}>
-              <div className="relative min-h-[340px] h-full overflow-hidden rounded-md border border-brand-100">
-                <Image
-                  src="https://images.pexels.com/photos/29354077/pexels-photo-29354077.jpeg"
-                  alt="Care professional supporting a client in their home"
-                  fill
-                  className="object-cover"
-                />
+              <div className="relative min-h-[340px] h-full">
+                <div className="pointer-events-none absolute -top-6 -right-6 h-2/3 w-2/3 rounded-full bg-spark-500/15 blur-2xl" />
+                <div className="relative min-h-[340px] h-full overflow-hidden rounded-[44%_56%_62%_38%/46%_40%_60%_54%] border border-brand-100">
+                  <Image
+                    src="https://images.pexels.com/photos/29354077/pexels-photo-29354077.jpeg"
+                    alt="Care professional supporting a client in their home"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
               </div>
             </FadeIn>
           </div>
@@ -71,7 +75,43 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="bg-white pb-16">
+      <section className="bg-brand-50/30 py-16">
+        <div className="container-wide">
+          <FadeIn>
+            <div className="text-center max-w-3xl mx-auto mb-10">
+              <span className="inline-block text-brand-600 font-semibold text-sm uppercase tracking-wider mb-4">Specialist Services</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-5">
+                Explore Our Specialist Care Pathways
+              </h2>
+            </div>
+          </FadeIn>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <FadeIn delay={0.1}>
+              <Link href="/services/complex-care" className="group block rounded-lg border border-accent-200 bg-white p-8 hover:border-accent-300 transition-all duration-300">
+                <Activity className="w-10 h-10 text-brand-600 mb-4" />
+                <h3 className="text-2xl font-bold mb-3">Complex Care</h3>
+                <p className="text-base font-medium text-slate-800 leading-relaxed mb-4">Specialist support for individuals with complex medical and clinical needs including PEG feeding, tracheostomy, and ventilation care.</p>
+                <span className="inline-flex items-center text-brand-600 text-base font-semibold group-hover:gap-2 transition-all">
+                  Learn more <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </Link>
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <Link href="/services/drug-alcohol-dual-diagnosis" className="group block rounded-lg border border-accent-200 bg-white p-8 hover:border-accent-300 transition-all duration-300">
+                <Shield className="w-10 h-10 text-brand-600 mb-4" />
+                <h3 className="text-2xl font-bold mb-3">Drug, Alcohol & Dual Diagnosis</h3>
+                <p className="text-base font-medium text-slate-800 leading-relaxed mb-4">Safe, compassionate personal care for people living with substance dependency, alcohol dependency, or dual diagnosis needs.</p>
+                <span className="inline-flex items-center text-brand-600 text-base font-semibold group-hover:gap-2 transition-all">
+                  Learn more <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </Link>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-16">
         <div className="container-wide">
           <div className="grid lg:grid-cols-[1.1fr_1fr] gap-8 items-center">
             <FadeIn>
@@ -114,42 +154,6 @@ export default function ServicesPage() {
                   className="object-cover"
                 />
               </div>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-brand-50/50 py-14">
-        <div className="container-wide">
-          <FadeIn>
-            <div className="text-center max-w-3xl mx-auto mb-10">
-              <span className="inline-block text-brand-600 font-semibold text-sm uppercase tracking-wider mb-4">Specialist Services</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-5">
-                Explore Our Specialist Care Pathways
-              </h2>
-            </div>
-          </FadeIn>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <FadeIn delay={0.1}>
-              <Link href="/services/complex-care" className="group block rounded-lg border border-accent-200 bg-white p-8 hover:border-accent-300 transition-all duration-300">
-                <Activity className="w-10 h-10 text-brand-600 mb-4" />
-                <h3 className="text-2xl font-bold mb-3">Complex Care</h3>
-                <p className="text-base font-medium text-slate-800 leading-relaxed mb-4">Specialist support for individuals with complex medical and clinical needs including PEG feeding, tracheostomy, and ventilation care.</p>
-                <span className="inline-flex items-center text-brand-600 text-base font-semibold group-hover:gap-2 transition-all">
-                  Learn more <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </Link>
-            </FadeIn>
-            <FadeIn delay={0.2}>
-              <Link href="/services/drug-alcohol-dual-diagnosis" className="group block rounded-lg border border-accent-200 bg-white p-8 hover:border-accent-300 transition-all duration-300">
-                <Shield className="w-10 h-10 text-brand-600 mb-4" />
-                <h3 className="text-2xl font-bold mb-3">Drug, Alcohol & Dual Diagnosis</h3>
-                <p className="text-base font-medium text-slate-800 leading-relaxed mb-4">Safe, compassionate personal care for people living with substance dependency, alcohol dependency, or dual diagnosis needs.</p>
-                <span className="inline-flex items-center text-brand-600 text-base font-semibold group-hover:gap-2 transition-all">
-                  Learn more <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </Link>
             </FadeIn>
           </div>
         </div>

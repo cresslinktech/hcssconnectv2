@@ -6,15 +6,16 @@ import GlobalCTA from '@/components/GlobalCTA';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Complex Care | Humanity CSS — Specialist Clinical Care at Home',
+  title: 'Complex Care | Humanity CSS: Specialist Clinical Care at Home',
   description: 'Expert complex care services including PEG feeding, tracheostomy care, ventilation support, and clinical interventions delivered safely in the comfort of your home.',
 };
 
 export default function ComplexCarePage() {
   return (
     <>
-      <section className="bg-brand-50/50 pt-28 md:pt-32 pb-16">
-        <div className="container-wide">
+      <section className="relative overflow-hidden bg-brand-50/50 pt-36 md:pt-40 pb-16">
+        <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-brand-100/60 blur-3xl" />
+        <div className="container-wide relative">
           <div className="grid lg:grid-cols-[1.05fr_1fr] gap-8 lg:gap-10 items-stretch">
             <FadeIn>
               <div className="py-6 md:py-10">
@@ -32,13 +33,16 @@ export default function ComplexCarePage() {
               </div>
             </FadeIn>
             <FadeIn direction="right" delay={0.2}>
-              <div className="relative min-h-[340px] h-full overflow-hidden rounded-md border border-brand-100">
-                <Image
-                  src="https://images.pexels.com/photos/8439676/pexels-photo-8439676.jpeg"
-                  alt="Specialist carer supporting an older client"
-                  fill
-                  className="object-cover"
-                />
+              <div className="relative min-h-[340px] h-full">
+                <div className="pointer-events-none absolute -top-6 -right-6 h-2/3 w-2/3 rounded-full bg-spark-500/15 blur-2xl" />
+                <div className="relative min-h-[340px] h-full overflow-hidden rounded-[44%_56%_62%_38%/46%_40%_60%_54%] border border-brand-100">
+                  <Image
+                    src="https://images.pexels.com/photos/8439676/pexels-photo-8439676.jpeg"
+                    alt="Specialist carer supporting an older client"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
               </div>
             </FadeIn>
           </div>
@@ -46,41 +50,6 @@ export default function ComplexCarePage() {
       </section>
 
       <section className="bg-white py-16">
-        <div className="container-wide">
-          <div className="grid lg:grid-cols-[1.1fr_1fr] gap-8 items-center">
-            <FadeIn>
-              <div>
-                <span className="inline-block text-brand-600 font-semibold text-sm uppercase tracking-wider mb-4">Complex Care</span>
-                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-5 leading-tight">
-                  Clinical excellence in your home
-                </h2>
-                <p className="text-base md:text-lg font-medium text-slate-800 leading-8 mb-6">
-                  Our complex care service supports people who require specialist clinical interventions and ongoing medical support. Care is delivered by trained professionals with nurse-led oversight.
-                </p>
-                <p className="text-base md:text-lg font-medium text-slate-800 leading-8 mb-7">
-                  We combine technical competence with empathy and consistency, so individuals and families feel safe, respected, and supported at every stage.
-                </p>
-                <Link href="/contact" className="inline-flex items-center rounded-md bg-brand-600 px-6 py-3 text-base font-semibold text-white hover:bg-brand-700 transition-colors group">
-                  Discuss Your Needs
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </FadeIn>
-            <FadeIn direction="right" delay={0.2}>
-              <div className="relative min-h-[340px] overflow-hidden rounded-md border border-brand-100">
-                <Image
-                  src="https://images.pexels.com/photos/6248954/pexels-photo-6248954.jpeg"
-                  alt="Professional complex care planning discussion"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-brand-50/20 py-16">
         <div className="container-wide">
           <FadeIn>
             <div className="text-center max-w-3xl mx-auto mb-12">
@@ -105,12 +74,47 @@ export default function ComplexCarePage() {
               'Post-Surgical Recovery',
             ].map((service, index) => (
               <FadeIn key={service} delay={index * 0.05}>
-                <div className="flex items-start gap-3 rounded-md border border-brand-100 bg-white p-5">
+                <div className="flex items-start gap-3 rounded-md border border-brand-100 bg-brand-50/10 p-5">
                   <CheckCircle2 className="w-5 h-5 text-brand-600 flex-shrink-0 mt-0.5" />
                   <span className="text-base font-medium text-slate-800">{service}</span>
                 </div>
               </FadeIn>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-brand-50/20 py-16">
+        <div className="container-wide">
+          <div className="grid lg:grid-cols-[1.1fr_1fr] gap-8 items-center">
+            <FadeIn>
+              <div>
+                <span className="inline-block text-brand-600 font-semibold text-sm uppercase tracking-wider mb-4">Complex Care</span>
+                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-5 leading-tight">
+                  Clinical excellence in your home
+                </h2>
+                <p className="text-base md:text-lg font-medium text-slate-800 leading-8 mb-6">
+                  Our complex care service supports people who require specialist clinical interventions and ongoing medical support. Care is delivered by trained professionals with nurse-led oversight.
+                </p>
+                <p className="text-base md:text-lg font-medium text-slate-800 leading-8 mb-7">
+                  We combine technical competence with empathy and consistency, so individuals and families feel safe, respected, and supported at every stage.
+                </p>
+                <Link href="/contact" className="inline-flex items-center rounded-md bg-accent-500 px-6 py-3 text-base font-semibold text-white shadow-sm shadow-accent-500/20 hover:bg-accent-700 transition-colors group">
+                  Discuss Your Needs
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </FadeIn>
+            <FadeIn direction="right" delay={0.2}>
+              <div className="relative min-h-[340px] overflow-hidden rounded-md border border-brand-100">
+                <Image
+                  src="https://images.pexels.com/photos/6248954/pexels-photo-6248954.jpeg"
+                  alt="Professional complex care planning discussion"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </FadeIn>
           </div>
         </div>
       </section>
