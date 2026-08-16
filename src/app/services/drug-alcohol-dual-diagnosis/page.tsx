@@ -37,8 +37,8 @@ export default function DrugAlcoholDualDiagnosisPage() {
                 <div className="pointer-events-none absolute -top-6 -right-6 h-2/3 w-2/3 rounded-full bg-spark-500/15 blur-2xl" />
                 <div className="relative min-h-[340px] h-full overflow-hidden rounded-[44%_56%_62%_38%/46%_40%_60%_54%] border border-brand-100">
                   <Image
-                    src="https://images.pexels.com/photos/7176324/pexels-photo-7176324.jpeg"
-                    alt="Supportive conversation during personal care at home"
+                    src="/images/care-companionship-sofa-1.png"
+                    alt="Humanity CSS carer sharing a supportive moment with a client"
                     fill
                     className="object-cover"
                     priority
@@ -104,8 +104,8 @@ export default function DrugAlcoholDualDiagnosisPage() {
             <FadeIn direction="right" delay={0.2}>
               <div className="relative min-h-[340px] overflow-hidden rounded-md border border-brand-100">
                 <Image
-                  src="https://images.pexels.com/photos/7447065/pexels-photo-7447065.jpeg"
-                  alt="Care professional supporting client with respect and dignity"
+                  src="/images/care-companionship-sofa-2.png"
+                  alt="Humanity CSS carer supporting a client with respect and dignity"
                   fill
                   className="object-cover"
                 />
@@ -121,8 +121,8 @@ export default function DrugAlcoholDualDiagnosisPage() {
             <FadeIn>
               <div className="relative min-h-[320px] rounded-md overflow-hidden border border-brand-100">
                 <Image
-                  src="https://images.pexels.com/photos/7447080/pexels-photo-7447080.jpeg"
-                  alt="Professional collaboration and care coordination"
+                  src="/images/team-office-meeting.png"
+                  alt="Humanity CSS team coordinating client care together"
                   fill
                   className="object-cover"
                 />

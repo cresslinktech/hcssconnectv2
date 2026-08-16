@@ -43,8 +43,8 @@ export default function AboutPage() {
                 <div className="pointer-events-none absolute -top-6 -right-6 h-2/3 w-2/3 rounded-full bg-spark-500/15 blur-2xl" />
                 <div className="relative min-h-[340px] h-full overflow-hidden rounded-[44%_56%_62%_38%/46%_40%_60%_54%] border border-brand-100">
                   <Image
-                    src="https://images.pexels.com/photos/29372734/pexels-photo-29372734.jpeg"
-                    alt="Care professional supporting a client at home"
+                    src="/images/team-office-meeting.png"
+                    alt="The Humanity CSS team together in our office"
                     fill
                     className="object-cover"
                   />
@@ -61,8 +61,8 @@ export default function AboutPage() {
           <FadeIn className="grid lg:grid-cols-[1fr_1fr] gap-8 items-center">
             <div className="relative min-h-[320px] rounded-md overflow-hidden border border-brand-100">
               <Image
-                src="https://images.pexels.com/photos/18459192/pexels-photo-18459192.jpeg"
-                alt="Care worker and client sharing a supportive moment"
+                src="/images/care-team-lounge.png"
+                alt="Humanity CSS carers spending time with clients in their home"
                 fill
                 className="object-cover"
               />

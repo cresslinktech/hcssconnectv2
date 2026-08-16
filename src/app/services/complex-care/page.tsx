@@ -37,8 +37,8 @@ export default function ComplexCarePage() {
                 <div className="pointer-events-none absolute -top-6 -right-6 h-2/3 w-2/3 rounded-full bg-spark-500/15 blur-2xl" />
                 <div className="relative min-h-[340px] h-full overflow-hidden rounded-[44%_56%_62%_38%/46%_40%_60%_54%] border border-brand-100">
                   <Image
-                    src="https://images.pexels.com/photos/8439676/pexels-photo-8439676.jpeg"
-                    alt="Specialist carer supporting an older client"
+                    src="/images/care-personal-grooming.png"
+                    alt="Humanity CSS carer providing specialist personal care"
                     fill
                     className="object-cover"
                   />
@@ -108,8 +108,8 @@ export default function ComplexCarePage() {
             <FadeIn direction="right" delay={0.2}>
               <div className="relative min-h-[340px] overflow-hidden rounded-md border border-brand-100">
                 <Image
-                  src="https://images.pexels.com/photos/6248954/pexels-photo-6248954.jpeg"
-                  alt="Professional complex care planning discussion"
+                  src="/images/team-office-meeting.png"
+                  alt="Humanity CSS team planning a client's complex care"
                   fill
                   className="object-cover"
                 />
@@ -125,8 +125,8 @@ export default function ComplexCarePage() {
             <FadeIn>
               <div className="relative min-h-[320px] rounded-md overflow-hidden border border-brand-100">
                 <Image
-                  src="https://images.pexels.com/photos/6130948/pexels-photo-6130948.jpeg"
-                  alt="Care professional reviewing clinical notes"
+                  src="/images/care-team-lounge.png"
+                  alt="Humanity CSS carers with a client and family member"
                   fill
                   className="object-cover"
                 />

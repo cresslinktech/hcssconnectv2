@@ -42,8 +42,8 @@ export default function ServicesPage() {
                 <div className="pointer-events-none absolute -top-6 -right-6 h-2/3 w-2/3 rounded-full bg-spark-500/15 blur-2xl" />
                 <div className="relative min-h-[340px] h-full overflow-hidden rounded-[44%_56%_62%_38%/46%_40%_60%_54%] border border-brand-100">
                   <Image
-                    src="https://images.pexels.com/photos/29354077/pexels-photo-29354077.jpeg"
-                    alt="Care professional supporting a client in their home"
+                    src="/images/care-personal-grooming.png"
+                    alt="Humanity CSS carer providing personal care at home"
                     fill
                     className="object-cover"
                   />
@@ -148,8 +148,8 @@ export default function ServicesPage() {
             <FadeIn direction="right" delay={0.2}>
               <div className="relative min-h-[360px] overflow-hidden rounded-md border border-brand-100">
                 <Image
-                  src="https://images.pexels.com/photos/29372708/pexels-photo-29372708.jpeg"
-                  alt="Care assessment conversation in a home setting"
+                  src="/images/care-companionship-tea.png"
+                  alt="Humanity CSS carer having a conversation with a client at home"
                   fill
                   className="object-cover"
                 />

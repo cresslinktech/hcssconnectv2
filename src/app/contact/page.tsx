@@ -65,8 +65,8 @@ export default function ContactPage() {
                 <div className="pointer-events-none absolute -top-6 -right-6 h-2/3 w-2/3 rounded-full bg-spark-500/15 blur-2xl" />
                 <div className="relative min-h-[340px] h-full overflow-hidden rounded-[44%_56%_62%_38%/46%_40%_60%_54%] border border-brand-100">
                   <Image
-                    src="https://images.pexels.com/photos/7658404/pexels-photo-7658404.jpeg"
-                    alt="Support team member assisting a client"
+                    src="/images/care-companionship-sofa-2.png"
+                    alt="Humanity CSS carer chatting with a client over tea"
                     fill
                     className="object-cover"
                   />

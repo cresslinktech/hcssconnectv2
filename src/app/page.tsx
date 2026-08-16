@@ -62,8 +62,8 @@ export default function HomePage() {
                 <div className="pointer-events-none absolute -top-8 -right-8 h-2/3 w-2/3 rounded-full bg-spark-500/20 blur-2xl" />
                 <div className="relative h-full min-h-[380px] overflow-hidden rounded-[44%_56%_62%_38%/46%_40%_60%_54%] border border-brand-100">
                   <Image
-                    src="https://images.pexels.com/photos/7551592/pexels-photo-7551592.jpeg"
-                    alt="Carer supporting an older client at home"
+                    src="/images/care-companionship-sofa-1.png"
+                    alt="Humanity CSS carer sharing a warm moment with a client at home"
                     fill
                     priority
                     className="object-cover"
@@ -229,8 +229,8 @@ export default function HomePage() {
 
             <FadeIn direction="right" className="relative min-h-[360px] rounded-md overflow-hidden border border-accent-200">
               <Image
-                src="https://images.pexels.com/photos/3768114/pexels-photo-3768114.jpeg"
-                alt="Care worker smiling with client in London"
+                src="/images/care-companionship-tea.png"
+                alt="Humanity CSS carer bringing tea to a client at home"
                 fill
                 className="object-cover"
               />

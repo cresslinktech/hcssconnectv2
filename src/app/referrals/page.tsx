@@ -65,8 +65,8 @@ export default function ReferralsPage() {
                 <div className="pointer-events-none absolute -top-6 -right-6 h-2/3 w-2/3 rounded-full bg-spark-500/15 blur-2xl" />
                 <div className="relative min-h-[340px] h-full overflow-hidden rounded-[44%_56%_62%_38%/46%_40%_60%_54%] border border-brand-100">
                   <Image
-                    src="https://images.pexels.com/photos/6749742/pexels-photo-6749742.jpeg"
-                    alt="Professional completing a care referral"
+                    src="/images/referrals-refer-a-friend.png"
+                    alt="Humanity CSS carer discussing a referral with a client"
                     fill
                     className="object-cover"
                   />
@@ -138,8 +138,8 @@ export default function ReferralsPage() {
             <FadeIn direction="right" delay={0.2}>
               <div className="relative min-h-[340px] h-full overflow-hidden rounded-md border border-brand-100">
                 <Image
-                  src="https://images.pexels.com/photos/8204324/pexels-photo-8204324.jpeg"
-                  alt="Care team reviewing referral details"
+                  src="/images/care-personal-grooming.png"
+                  alt="Humanity CSS carer providing personal care at home"
                   fill
                   className="object-cover"
                 />
@@ -157,7 +157,7 @@ export default function ReferralsPage() {
                 <span className="inline-block text-brand-600 font-semibold text-sm uppercase tracking-wider mb-4">Online Referral</span>
                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Submit a Referral</h2>
                 <p className="text-base font-medium text-slate-800">
-                  Complete the form below and our team will be in touch within 2 working hours. For urgent referrals, 
+                  Complete the form below and our team will be in touch within 2 working hours. For urgent referrals,
                   please call <a href={`tel:${SITE_CONFIG.phone.replace(/\s/g, '')}`} className="text-accent-600 font-semibold hover:underline">{SITE_CONFIG.phone}</a>.
                 </p>
               </div>
@@ -300,8 +300,8 @@ export default function ReferralsPage() {
                       className="mt-1 w-4 h-4 text-accent-600 border-brand-100 rounded focus:ring-accent-500 disabled:opacity-60"
                     />
                     <label htmlFor="consent" className="text-base font-medium text-slate-800">
-                      I confirm that I have the appropriate authority to make this referral 
-                      and the client (or their representative) has given consent for their information 
+                      I confirm that I have the appropriate authority to make this referral
+                      and the client (or their representative) has given consent for their information
                       to be shared with Humanity CSS. <span className="text-red-500">*</span>
                     </label>
                   </div>
