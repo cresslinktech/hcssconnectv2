@@ -61,8 +61,8 @@ export default function AboutPage() {
           <FadeIn className="grid lg:grid-cols-[1fr_1fr] gap-8 items-center">
             <div className="relative min-h-[320px] rounded-md overflow-hidden border border-brand-100">
               <Image
-                src="/images/care-team-lounge.png"
-                alt="Humanity CSS carers spending time with clients in their home"
+                src="/images/ceo.png"
+                alt="Naima Ali, CEO of Humanity CSS, at her desk"
                 fill
                 className="object-cover"
               />
