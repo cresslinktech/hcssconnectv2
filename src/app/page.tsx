@@ -44,7 +44,7 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-center gap-6">
                   {[
-                    { value: '40+', label: 'Years experience' },
+                    { value: '5+', label: 'Years experience' },
                     { value: '3+', label: 'London boroughs' },
                     { value: '24/7', label: 'Rapid response' },
                   ].map((stat, i) => (
@@ -104,7 +104,7 @@ export default function HomePage() {
                   Humanity CSS provides person-centred domiciliary care across London, including specialist support for complex needs and personal care for drug, alcohol and dual diagnosis needs.
                 </p>
                 <p className="mt-3 text-base md:text-lg font-medium leading-8 text-slate-800">
-                  With a <span className="font-bold text-brand-600">GOOD CQC rating</span> and a leadership team bringing <span className="font-bold text-slate-900">40+ years of combined experience</span>, we focus on safe, reliable care that adapts to each individual.
+                  With a <span className="font-bold text-brand-600">GOOD CQC rating</span> and a leadership team bringing <span className="font-bold text-slate-900">5+ years of combined experience</span>, we focus on safe, reliable care that adapts to each individual.
                 </p>
               </div>
 
@@ -119,7 +119,7 @@ export default function HomePage() {
                 <div className="h-px w-full bg-brand-100" />
                 <div>
                   <p className="text-sm uppercase tracking-wider text-slate-500 font-semibold">Leadership Experience</p>
-                  <p className="mt-1 text-lg font-bold text-slate-900">40+ Years Combined</p>
+                  <p className="mt-1 text-lg font-bold text-slate-900">5+ Years Combined</p>
                 </div>
                 <div className="h-px w-full bg-brand-100" />
                 <div>
